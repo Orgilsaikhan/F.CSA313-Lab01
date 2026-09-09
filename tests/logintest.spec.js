@@ -53,8 +53,12 @@ test('Нэвтэрсний дараа бараа сагслах', async ({ page 
     await page.getByRole('button', { name: 'Add to cart' }).first().click();
 
     // Cart
-    await page.getByTestId('shopping-cart-link').click();
+// Cart руу орох
+await page.locator('.shopping_cart_link').click();
 
+await expect(
+    page.getByText('Sauce Labs Backpack')
+).toBeVisible();
     // Backpack сагсанд байгаа эсэх
     await expect(
         page.getByText('Sauce Labs Backpack')
