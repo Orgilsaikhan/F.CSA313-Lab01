@@ -14,6 +14,22 @@ test('Амжилттай нэвтрэх', async ({ page }) => {
     await expect(page).toHaveURL(/inventory/);
 
     await expect(page.getByText('Products')).toBeVisible();
+    // Цэс нээх
+await page.getByRole('button', { name: 'Open Menu' }).click();
+
+// Sidebar нээгдсэнийг шалгах
+await expect(page.locator('.bm-menu-wrap')).toHaveCSS(
+    'visibility',
+    'visible'
+);
+
+// Logout
+await page.locator('[data-test="logout-sidebar-link"]').click();
+
+// Login дахин харагдах
+await expect(
+    page.getByRole('button', { name: 'Login' })
+).toBeVisible();
 });
 
 
@@ -54,13 +70,29 @@ test('Нэвтэрсний дараа бараа сагслах', async ({ page 
 
     // Cart
 // Cart руу орох
-await page.locator('.shopping_cart_link').click();
+    await page.locator('.shopping_cart_link').click();
 
-await expect(
+    await expect(
     page.getByText('Sauce Labs Backpack')
-).toBeVisible();
+    ).toBeVisible();
     // Backpack сагсанд байгаа эсэх
     await expect(
         page.getByText('Sauce Labs Backpack')
     ).toBeVisible();
+    // Цэс нээх
+await page.getByRole('button', { name: 'Open Menu' }).click();
+
+// Sidebar нээгдсэнийг шалгах
+await expect(page.locator('.bm-menu-wrap')).toHaveCSS(
+    'visibility',
+    'visible'
+);
+
+// Logout
+await page.locator('[data-test="logout-sidebar-link"]').click();
+
+// Login дахин харагдах
+await expect(
+    page.getByRole('button', { name: 'Login' })
+).toBeVisible();
 });
