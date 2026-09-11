@@ -56,10 +56,10 @@ test('Нэвтэрсний дараа бараа сагслах', async ({ page 
     await page.goto('https://www.saucedemo.com');
 
     await page.getByRole('textbox', { name: 'Username' })
-        .fill('standard_user');
+        .fill('standard_usert');
 
     await page.getByRole('textbox', { name: 'Password' })
-        .fill('secret_sauce');
+        .fill('secret_sause');
 
     await page.getByRole('button', { name: 'Login' }).click();
 
